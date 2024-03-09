@@ -1,4 +1,4 @@
-﻿# TM
+﻿# TM (Time Manager)
 
 ---
 
