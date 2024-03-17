@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'E:\TM\DialogFormTask.ui'
+# Form implementation generated from reading ui file 'C:\__FreeCode\TM\DialogFormTask.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -83,7 +83,7 @@ class Ui_DialogFormTask(object):
         self.ButtonSave.setFont(font)
         self.ButtonSave.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\TM\\icons/save48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\__FreeCode\\TM\\icons/save48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ButtonSave.setIcon(icon)
         self.ButtonSave.setFlat(True)
         self.ButtonSave.setObjectName("ButtonSave")
@@ -94,7 +94,7 @@ class Ui_DialogFormTask(object):
         self.ButtonCancel.setFont(font)
         self.ButtonCancel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\TM\\icons/delete48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("C:\\__FreeCode\\TM\\icons/delete48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ButtonCancel.setIcon(icon1)
         self.ButtonCancel.setFlat(True)
         self.ButtonCancel.setObjectName("ButtonCancel")

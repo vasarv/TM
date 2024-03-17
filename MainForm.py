@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'E:\TM\MainForm.ui'
+# Form implementation generated from reading ui file 'C:\__FreeCode\TM\MainForm.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -67,19 +67,19 @@ class Ui_MainWindow(object):
         self.tableWidgetFinance.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidgetFinance.setHorizontalHeaderItem(4, item)
-        self.radioButton = QtWidgets.QRadioButton(self.finance)
-        self.radioButton.setGeometry(QtCore.QRect(10, 20, 82, 17))
+        self.radioButtonComing = QtWidgets.QRadioButton(self.finance)
+        self.radioButtonComing.setGeometry(QtCore.QRect(10, 20, 82, 17))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.radioButton.setFont(font)
-        self.radioButton.setChecked(True)
-        self.radioButton.setObjectName("radioButton")
-        self.radioButton_2 = QtWidgets.QRadioButton(self.finance)
-        self.radioButton_2.setGeometry(QtCore.QRect(10, 50, 82, 17))
+        self.radioButtonComing.setFont(font)
+        self.radioButtonComing.setChecked(True)
+        self.radioButtonComing.setObjectName("radioButtonComing")
+        self.radioButtonExpenditure = QtWidgets.QRadioButton(self.finance)
+        self.radioButtonExpenditure.setGeometry(QtCore.QRect(10, 50, 82, 17))
         font = QtGui.QFont()
         font.setPointSize(10)
-        self.radioButton_2.setFont(font)
-        self.radioButton_2.setObjectName("radioButton_2")
+        self.radioButtonExpenditure.setFont(font)
+        self.radioButtonExpenditure.setObjectName("radioButtonExpenditure")
         self.label = QtWidgets.QLabel(self.finance)
         self.label.setGeometry(QtCore.QRect(5, 296, 101, 21))
         font = QtGui.QFont()
@@ -103,7 +103,7 @@ class Ui_MainWindow(object):
         self.ButtonAddRecord.setFont(font)
         self.ButtonAddRecord.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("E:\\TM\\icons/add48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\__FreeCode\\TM\\icons/add48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ButtonAddRecord.setIcon(icon)
         self.ButtonAddRecord.setFlat(True)
         self.ButtonAddRecord.setObjectName("ButtonAddRecord")
@@ -114,7 +114,7 @@ class Ui_MainWindow(object):
         self.ButtonDeleteRecord.setFont(font)
         self.ButtonDeleteRecord.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("E:\\TM\\icons/delete48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("C:\\__FreeCode\\TM\\icons/delete48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ButtonDeleteRecord.setIcon(icon1)
         self.ButtonDeleteRecord.setFlat(True)
         self.ButtonDeleteRecord.setObjectName("ButtonDeleteRecord")
@@ -125,7 +125,7 @@ class Ui_MainWindow(object):
         self.ButtonEditRecord.setFont(font)
         self.ButtonEditRecord.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("E:\\TM\\icons/edit48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("C:\\__FreeCode\\TM\\icons/edit48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ButtonEditRecord.setIcon(icon2)
         self.ButtonEditRecord.setFlat(True)
         self.ButtonEditRecord.setObjectName("ButtonEditRecord")
@@ -162,7 +162,7 @@ class Ui_MainWindow(object):
         self.ButtonFilter.setGeometry(QtCore.QRect(899, 283, 31, 23))
         self.ButtonFilter.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("E:\\TM\\icons/filter48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap("C:\\__FreeCode\\TM\\icons/filter48.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ButtonFilter.setIcon(icon3)
         self.ButtonFilter.setObjectName("ButtonFilter")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -175,7 +175,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -202,8 +202,8 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Количество"))
         item = self.tableWidgetFinance.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Сумма"))
-        self.radioButton.setText(_translate("MainWindow", "Приход"))
-        self.radioButton_2.setText(_translate("MainWindow", "Расход"))
+        self.radioButtonComing.setText(_translate("MainWindow", "Приход"))
+        self.radioButtonExpenditure.setText(_translate("MainWindow", "Расход"))
         self.label.setText(_translate("MainWindow", "Итоговая сумма"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.finance), _translate("MainWindow", "Финансы"))
         self.ButtonAddRecord.setText(_translate("MainWindow", "Добавить запись"))

@@ -1,3 +1,3 @@
-E:\TM\env\Scripts\pyuic5.exe -x E:\TM\MainForm.ui -o E:\TM\MainForm.py
+C:\__FreeCode\TM\env\Scripts\pyuic5.exe -x C:\__FreeCode\TM\MainForm.ui -o C:\__FreeCode\TM\MainForm.py
 
-E:\TM\env\Scripts\pyuic5.exe -x E:\TM\DialogFormTask.ui -o E:\TM\DialogFormTask.py
+C:\__FreeCode\TM\env\Scripts\pyuic5.exe -x C:\__FreeCode\TM\DialogFormTask.ui -o C:\__FreeCode\TM\DialogFormTask.py

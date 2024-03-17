@@ -6,9 +6,8 @@ from MainForm.onClickCalerdar import onClickCalendar
 from MainForm.CheckBoxClick import CheckBoxClick
 from MainForm.DatePeriod import SetDateIn, SetDateOut
 from MainForm.changeRecords import AddRecordClick, DelRecordClick, EditRecordClick
+from MainForm.FinanceTabUpdates import FinanceTableUpdate, lineEditSumUpdate
 from DialogFormTask.DialogFormTaskClose import dialogFormTaskClose
-
-
 
 
 
@@ -23,6 +22,9 @@ mainForm.dateEditOut.dateChanged.connect(SetDateOut)
 mainForm.ButtonAddRecord.clicked.connect(AddRecordClick)
 mainForm.ButtonDeleteRecord.clicked.connect(DelRecordClick)
 mainForm.ButtonEditRecord.clicked.connect(EditRecordClick)
+
+mainForm.radioButtonComing.clicked.connect(FinanceTableUpdate) #приход
+# mainForm.radioButtonExpenditure.clicked.connect(SetTableWidgetItems) #расход
 
 
 dialogFormTask.ButtonCancel.clicked.connect(dialogFormTaskClose)
