@@ -6,18 +6,6 @@ import time
 import datetime
 from math import sqrt
 
-def AddData():
-    conn = sqlite3.connect("tasks.db")
-    cursor = conn.cursor()
-
-    request = """INSERT INTO finance (dates_id, inc_types_id, exp_types_id, amount, price) VALUES (1, 1, 1, 1, 3);"""
-
-    cursor.execute(request)
-    conn.commit()
-
-    conn.close()
-
-
 def DBgetFinance(income: bool, dates: list[str, str]) -> list[list, float]:
     StrToDate = datetime.datetime.strptime
     dates = [StrToDate(date, '%d.%m.%Y').date() for date in dates]
@@ -54,29 +42,16 @@ def DBgetFinance(income: bool, dates: list[str, str]) -> list[list, float]:
             Sum += int(dat[5])
         else:
             continue
-    print(data)
+
     return [OutData, sqrt(Sum)]
 
-def GetDataTest():
-    conn = sqlite3.connect("tasks.db")
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT * FROM finance")
-
-    rows = cursor.fetchall()
-
-    conn.close()
-
-    return rows
-
-
-def FinanceTableUpdate(data: list[tuple]):
+def FinanceTableUpdate(data: list[tuple], income: bool = True):
     """
     Args:
         data (list): [id записи, date, статья расхода, count, sum]
     """
 
-    lineEditSumUpdate(total_amount=100.0, currency="RUB")
+    # lineEditSumUpdate(total_amount=100.0, currency="RUB") # функция в разработке
 
     income: bool  # если фильтруем по доходам - True, по расходам - False
     tableWidget = mainForm.tableWidgetFinance
