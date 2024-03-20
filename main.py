@@ -23,9 +23,9 @@ mainForm.ButtonAddRecord.clicked.connect(AddRecordClick)
 mainForm.ButtonDeleteRecord.clicked.connect(DelRecordClick)
 mainForm.ButtonEditRecord.clicked.connect(EditRecordClick)
 
-mainForm.radioButtonComing.clicked.connect(FinanceTableUpdate) #приход
+#mainForm.radioButtonComing.clicked.connect(FinanceTableUpdate) #приход
 # mainForm.radioButtonExpenditure.clicked.connect(SetTableWidgetItems) #расход
-
+### ЗАБЕЙ НА ВЕРХНИЕ 2 СТРОКИ, ИНИЦИАЛИЗАЦИЮ ПРОПИСЫВАЙ ПРЯМ ЗДЕСЬ (НО ТОЛЬКО ПО СВОЕЙ ЧАСТИ, tasks НЕ ТРОГАЙ) ###
 
 dialogFormTask.ButtonCancel.clicked.connect(dialogFormTaskClose)
 
