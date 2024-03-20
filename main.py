@@ -7,6 +7,7 @@ from MainForm.CheckBoxClick import CheckBoxClick
 from MainForm.DatePeriod import SetDateIn, SetDateOut
 from MainForm.changeRecords import AddRecordClick, DelRecordClick, EditRecordClick
 from DialogFormTask.DialogFormTaskClose import dialogFormTaskClose
+from MainForm.TasksUpdate import TasksTableUpdate
 
 
 
@@ -24,6 +25,7 @@ mainForm.ButtonAddRecord.clicked.connect(AddRecordClick)
 mainForm.ButtonDeleteRecord.clicked.connect(DelRecordClick)
 mainForm.ButtonEditRecord.clicked.connect(EditRecordClick)
 
+mainForm.tabWidget.currentChanged.connect(TasksTableUpdate)
 
 dialogFormTask.ButtonCancel.clicked.connect(dialogFormTaskClose)
 
