@@ -1,7 +1,10 @@
 from formcreator import mainForm
+from MainForm.TabWidgetFuncs import TasksTableUpdate
+
 
 def SetDateIn():
-    print(mainForm.dateEditIn.dateTime().toString('dd.MM.yyyy'))
+    TasksTableUpdate()
+
 
 def SetDateOut():
-    print(mainForm.dateEditOut.dateTime().toString('dd.MM.yyyy'))
+    TasksTableUpdate()
