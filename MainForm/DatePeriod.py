@@ -1,7 +1,8 @@
 from formcreator import mainForm
+from MainForm.FinanceTabUpdates import FinanceTableUpdate
 
 def SetDateIn():
-    print(mainForm.dateEditIn.dateTime().toString('dd.MM.yyyy'))
+    FinanceTableUpdate()
 
 def SetDateOut():
-    print(mainForm.dateEditOut.dateTime().toString('dd.MM.yyyy'))
+    FinanceTableUpdate()

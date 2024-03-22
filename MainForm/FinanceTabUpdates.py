@@ -1,16 +1,30 @@
 from formcreator import mainForm
 from PyQt5.QtWidgets import QTableWidgetItem
-from PyQt5.QtWidgets import QLineEdit
+from PyQt5.QtWidgets import QAbstractItemView
+
 import sqlite3
-import time
 import datetime
 from math import sqrt
 
-def DBgetFinance(income: bool, dates: list[str, str]) -> list[list, float]:
+
+def lineEditSumUpdate(total_amount: float = 0.0, currency: str = "руб."):
+    LineEdit = mainForm.lineEditSum
+    LineEdit.setEnabled(False)
+    LineEdit.setText(f"{total_amount} {currency}")
+
+
+def FinanceTableUpdate():
+    """
+    Args:
+        data (list): [id записи, date, статья расхода, count, sum]
+    """
+
+    tableWidget = mainForm.tableWidgetFinance
     StrToDate = datetime.datetime.strptime
-    dates = [StrToDate(date, '%d.%m.%Y').date() for date in dates]
-    OutData = []
+    income: bool = mainForm.radioButtonComing.isChecked()  # если фильтруем по доходам - True, по расходам - False
     Sum = 0
+
+    #############################################
 
     db = sqlite3.connect("tasks.db")
     cursor = db.cursor()
@@ -31,52 +45,37 @@ def DBgetFinance(income: bool, dates: list[str, str]) -> list[list, float]:
             """
 
     cursor.execute(request)
-    data = cursor.fetchall()
+    data = [list(i) for i in cursor.fetchall()]
     db.close()
 
-    for dat in data:
-        date = dat[1]
-        print(dat)
-        if dates[0] <= StrToDate(date, '%d.%m.%Y').date() <= dates[1]:
-            OutData.append(OutData)
-            Sum += int(dat[5])
-        else:
-            continue
+    if mainForm.checkBoxFilterDate.isChecked():
+        date_finance = [
+            mainForm.dateEditIn.dateTime().toString("dd.MM.yyyy"),
+            mainForm.dateEditOut.dateTime().toString("dd.MM.yyyy"),
+        ]
+    else:
+        date_finance = [
+            mainForm.calendarWidget.selectedDate().toString("dd.MM.yyyy")
+            for _ in range(2)
+        ]
 
-    return [OutData, sqrt(Sum)]
+    date_finance = [StrToDate(date, "%d.%m.%Y").date() for date in date_finance]
 
-def FinanceTableUpdate(data: list[tuple], income: bool = True):
-    """
-    Args:
-        data (list): [id записи, date, статья расхода, count, sum]
-    """
+    #############################################
 
-    # lineEditSumUpdate(total_amount=100.0, currency="RUB") # функция в разработке
-
-    income: bool  # если фильтруем по доходам - True, по расходам - False
-    tableWidget = mainForm.tableWidgetFinance
-    data = [list(i) for i in GetDataTest()]
-
-    if mainForm.radioButtonComing.isChecked():
-        income = True
-    elif mainForm.radioButtonExpenditure.isChecked():
-        income = False
+    tableWidget.setRowCount(0)  # очищаем таблицу
+    tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)  # ставим запрет на изменение данных
 
     rowPosition = tableWidget.rowCount()  # смотрим сколько строк уже в таблице GUI
     tableWidget.insertRow(rowPosition)  # перемещаемся к последней строке таблицы GUI
 
     for dat in data:  # берем данные построчно из таблицы finance
-        for colume in range(
-            1, len(dat)
-        ):  # перебираем колонки и добавляем в таблицы GUI
-            tableWidget.setItem(
-                rowPosition, colume - 1, QTableWidgetItem(str(dat[colume]))
-            )  # добавляем данные столбец-в-столбец
-        rowPosition += 1  # перемещаемся на строку вниз
+        if (date_finance[0] <= StrToDate(str(dat[0]), "%d.%m.%Y").date() <= date_finance[1]):
+            for idx in range(0, len(dat)):  # перебираем колонки и добавляем в таблицы GUI
+                tableWidget.setItem(rowPosition, idx, QTableWidgetItem(str(dat[idx])))  # добавляем данные столбец-в-столбец
+                Sum += int(dat[4]) * int(dat[5]) # Добавляем в сумму цену
+            rowPosition += 1  # перемещаемся на строку вниз
+        else:
+            continue
 
-
-def lineEditSumUpdate(total_amount: float = 0.0, currency: str = "рублей"): #пофиксить функцию
-    LineEdit = mainForm.lineEditSum
-    LineEdit.setEnabled(True)
-    # LineEdit.setReadOnly(True)
-    LineEdit.setText(f"{total_amount} {currency}") 
+    lineEditSumUpdate(Sum)

@@ -1,4 +1,5 @@
 from formcreator import mainForm
+from MainForm.FinanceTabUpdates import FinanceTableUpdate
 
 def onClickCalendar():
-    print(mainForm.calendarWidget.selectedDate().toString('dd.MM.yyyy'))
+    FinanceTableUpdate()

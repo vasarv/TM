@@ -6,11 +6,9 @@ from MainForm.onClickCalerdar import onClickCalendar
 from MainForm.CheckBoxClick import CheckBoxClick
 from MainForm.DatePeriod import SetDateIn, SetDateOut
 from MainForm.changeRecords import AddRecordClick, DelRecordClick, EditRecordClick
-from MainForm.FinanceTabUpdates import FinanceTableUpdate, lineEditSumUpdate
 from DialogFormTask.DialogFormTaskClose import dialogFormTaskClose
 
-
-
+from MainForm.FinanceTabUpdates import FinanceTableUpdate
 
 
 flags = Flags()
@@ -23,13 +21,11 @@ mainForm.ButtonAddRecord.clicked.connect(AddRecordClick)
 mainForm.ButtonDeleteRecord.clicked.connect(DelRecordClick)
 mainForm.ButtonEditRecord.clicked.connect(EditRecordClick)
 
-#mainForm.radioButtonComing.clicked.connect(FinanceTableUpdate) #приход
-# mainForm.radioButtonExpenditure.clicked.connect(SetTableWidgetItems) #расход
-### ЗАБЕЙ НА ВЕРХНИЕ 2 СТРОКИ, ИНИЦИАЛИЗАЦИЮ ПРОПИСЫВАЙ ПРЯМ ЗДЕСЬ (НО ТОЛЬКО ПО СВОЕЙ ЧАСТИ, tasks НЕ ТРОГАЙ) ###
-
 dialogFormTask.ButtonCancel.clicked.connect(dialogFormTaskClose)
 
+mainForm.radioButtonComing.clicked.connect(FinanceTableUpdate)
+mainForm.radioButtonExpenditure.clicked.connect(FinanceTableUpdate)
 
-
+FinanceTableUpdate()
 
 app.exec()
