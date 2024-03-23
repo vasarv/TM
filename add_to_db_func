@@ -1,0 +1,22 @@
+from formcreator import mainForm
+
+def add_to_db(a, b, c, d, e):
+
+    if mainForm.tabWidget.currentIndex() == 0: # 0 - tasks / 1 - finance
+        connection = sqlite3.connect('tasks.db')
+        cursor = connection.cursor()
+
+        cursor.execute(f'INSERT INTO tasks (decript, time_start, time_end, dates_id, status) VALUES ({a}, {b}, {c}, {d}, {e});')
+
+        connection.commit()
+        connection.close()
+
+
+    if mainForm.tabWidget.currentIndex() == 1:  # 0 - tasks / 1 - finance
+        connection = sqlite3.connect('tasks.db')
+        cursor = connection.cursor()
+
+        cursor.execute(f'INSERT INTO finance (amount, price) VALUES ({a}, {b});')
+
+        connection.commit()
+        connection.close()
