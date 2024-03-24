@@ -8,7 +8,7 @@ from MainForm.DatePeriod import SetDateIn, SetDateOut
 from MainForm.changeRecords import AddRecordClick, DelRecordClick, EditRecordClick
 from DialogFormTask.DialogFormTaskClose import dialogFormTaskClose
 
-from MainForm.TabWidgetFuncs import TasksTableUpdate
+from MainForm.TabWidgetFuncs import FinanceTableUpdate, TasksTableUpdate
 
 
 flags = Flags()
@@ -23,8 +23,10 @@ mainForm.ButtonEditRecord.clicked.connect(EditRecordClick)
 
 dialogFormTask.ButtonCancel.clicked.connect(dialogFormTaskClose)
 
+mainForm.radioButtonComing.clicked.connect(FinanceTableUpdate)
+mainForm.radioButtonExpenditure.clicked.connect(FinanceTableUpdate)
 
 TasksTableUpdate()
-
+FinanceTableUpdate()
 
 app.exec()

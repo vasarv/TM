@@ -1,6 +1,6 @@
 from formcreator import mainForm
 from PyQt5.QtCore import QDate
-from MainForm.TabWidgetFuncs import TasksTableUpdate
+from MainForm.TabWidgetFuncs import FinanceTableUpdate, TasksTableUpdate
 
 
 def CheckBoxClick():
@@ -16,3 +16,4 @@ def CheckBoxClick():
         mainForm.ButtonFilter.setEnabled(False)
 
     TasksTableUpdate()
+    FinanceTableUpdate()
