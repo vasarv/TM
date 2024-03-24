@@ -12,8 +12,8 @@ dialogTaskWindow = DialogTaskWindow()
 dialogFinanceWindow = DialogFinanceWindow()
 
 mainForm = MainForm()
-dialogFormTask=DialogFormTask()
-dialogFormFinance=DialogFormFinance()
+dialogFormTask = DialogFormTask()
+dialogFormFinance = DialogFormFinance()
 
 mainForm.setupUi(mainWindow)
 dialogFormTask.setupUi(dialogTaskWindow)

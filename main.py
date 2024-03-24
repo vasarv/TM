@@ -14,11 +14,13 @@ from MainForm.CheckBoxClick import CheckBoxClick
 from MainForm.DatePeriod import SetDateIn, SetDateOut
 
 from MainForm.changeRecords import AddRecordClick, DelRecordClick, EditRecordClick
-from DialogFormTask.DialogFormTaskClose import dialogFormTaskClose
 
+from DialogFormFinance.DialogFormFinanceClose import dialogFormFinanceClose
+from DialogFormTask.DialogFormTaskClose import dialogFormTaskClose
+from DialogFormTask.TaskAddRecord import TaskAddRecord
+from DialogFormFinance.FinanceAddRecord import FinanceAddRecord
 
 # from MainForm.changeRecords_Finance import AddRecordClick_Finance, DelRecordClick_Finance, EditRecordClick_Finance
-from DialogFormFinance.DialogFormFinanceClose import dialogFormFinanceClose
 
 
 flags = Flags()
@@ -31,10 +33,15 @@ mainForm.ButtonAddRecord.clicked.connect(AddRecordClick)
 mainForm.ButtonDeleteRecord.clicked.connect(DelRecordClick)
 mainForm.ButtonEditRecord.clicked.connect(EditRecordClick)
 
+################
+dialogFormTask.ButtonSave.clicked.connect(TaskAddRecord)
+dialogFormFinance.ButtonSave.clicked.connect(FinanceAddRecord)
+
+# TaskAddRecordWindow()
+################
 
 dialogFormTask.ButtonCancel.clicked.connect(dialogFormTaskClose)
-
-dialogFormFinance.ButtonCancel1.clicked.connect(dialogFormFinanceClose)
+dialogFormFinance.ButtonCancel.clicked.connect(dialogFormFinanceClose)
 
 
 app.exec()

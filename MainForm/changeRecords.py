@@ -7,51 +7,30 @@ from formcreator import (
     dialogFormFinance,
     dialogFinanceWindow,
 )
+from DBfuncs import insert_to_DB
+from DialogFormFinance.FinanceAddRecord import FinanceAddRecordWindow
+from DialogFormFinance.FinanceRmRecord import FinanceRmRecord
+from DialogFormFinance.FinanceEditRecord import FinanceEditRecord
+from DialogFormTask.TaskAddRecord import TaskAddRecordWindow
+from DialogFormTask.TaskRmRecord import TaskRmRecord
+from DialogFormTask.TaskEditRecord import TaskEditRecord
 
 
 def AddRecordClick():
-    _translate = QtCore.QCoreApplication.translate
     if mainForm.tabWidget.currentIndex() == 0:
-        dialogFormTask.CaptionLabel.setText(
-            _translate("DialogFormTask", "Добавление записи заданий")
-        )
-        dialogFormTask.dateEditTask.setDate(QDate.currentDate())
-        dialogFormTask.timeEditStart.setTime(QtCore.QTime.currentTime())
-        dialogTaskWindow.show()
-
+        TaskAddRecordWindow()
     elif mainForm.tabWidget.currentIndex() == 1:
-        dialogFormFinance.CaptionLabel.setText(
-            _translate("DialogFormFinance", "Добавление записи финансов")
-        )
-        dialogFormFinance.dateEditFinance.setDate(QDate.currentDate())
-        dialogFinanceWindow.show()
-
+        FinanceAddRecordWindow()
 
 def DelRecordClick():
-    _translate = QtCore.QCoreApplication.translate
     if mainForm.tabWidget.currentIndex() == 0:
-        dialogFormTask.CaptionLabel.setText(
-            _translate("DialogFormTask", "Удаление записи заданий")
-        )
-        dialogTaskWindow.show()
+        TaskRmRecord()
     elif mainForm.tabWidget.currentIndex() == 1:
-        dialogFormFinance.CaptionLabel.setText(
-            _translate("DialogFormFinance", "Удаление записи финансов")
-        )
-        dialogFormFinance.dateEditFinance.setDate(QDate.currentDate())
-        dialogFinanceWindow.show()
+        FinanceRmRecord()
 
 
 def EditRecordClick():
-    _translate = QtCore.QCoreApplication.translate
     if mainForm.tabWidget.currentIndex() == 0:
-        dialogFormTask.CaptionLabel.setText(
-            _translate("DialogFormTask", "Изменение записи заданий")
-        )
-        dialogTaskWindow.show()
+        TaskEditRecord()
     elif mainForm.tabWidget.currentIndex() == 1:
-        dialogFormFinance.CaptionLabel.setText(
-            _translate("DialogFormFinance", "Изменение финансов")
-        )
-        dialogFormFinance.dateEditFinance.setDate(QDate.currentDate())
-        dialogFinanceWindow.show()
+        FinanceEditRecord()

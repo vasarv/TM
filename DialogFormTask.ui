@@ -170,7 +170,7 @@
   </widget>
   <widget class="QTimeEdit" name="timeEditEnd">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
