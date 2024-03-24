@@ -31,9 +31,11 @@ def TaskAddRecord():
     status = status_dict[dialogFormTask.comboBoxTaskStatus.currentText()]
 
     date_id = insert_to_DB(f"""
-                           INSERT INTO dates (today)
-                           VALUES ("{date}")
-                           """
+                        INSERT INTO dates (today)
+                        SELECT DISTINCT '{date}'
+                        FROM dates
+                        WHERE '{date}' NOT IN (SELECT today FROM dates);
+                        """
     )
 
     insert_to_DB(f"""
@@ -41,5 +43,5 @@ def TaskAddRecord():
                  VALUES ("{description}", "{time_start}", "{time_end}", {date_id}, "{status}");
                  """
     )
-    
+
     dialogTaskWindow.close()

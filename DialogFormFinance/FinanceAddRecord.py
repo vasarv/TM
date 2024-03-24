@@ -24,19 +24,11 @@ def FinanceAddRecordWindow():
     # dialogFinanceWindow.dateEditFinance.setEnabled(False)
 
 def FinanceAddRecord():
-    date_id: int
-    article_id: int
-
-
     date = dialogFormFinance.dateEditFinance.dateTime().toString('dd.MM.yyyy')
     article_type = str(types_dict[dialogFormFinance.comboBoxArticleType.currentText()])
     article_text = str(dialogFormFinance.textEditArticle.toPlainText()).lower()
     amount = dialogFormFinance.textEditCount.toPlainText()
     price = dialogFormFinance.textEditSum.toPlainText()
-    
-    # date, article_type, article_text, amount, price = "02.07.2008", "income", "CHLEN", "5", "6"
-    
-    print(date, article_type, article_text, amount, price)
     
     if not(price.replace('.','',1).isdigit()):
         return #PRINT ERROR
@@ -44,17 +36,23 @@ def FinanceAddRecord():
         return #PRINT ERROR
 
     insert_to_DB(f"""
-            INSERT INTO {article_type}_types (descript)
-            VALUES ("{article_text}");""")
+                INSERT INTO {article_type}_types (descript)
+                SELECT DISTINCT '{article_text}'
+                FROM {article_type}_types
+                WHERE '{article_text}' NOT IN (SELECT descript FROM {article_type}_types);
+                """)
 
     date_id = insert_to_DB(f"""
                         INSERT INTO dates (today)
-                        VALUES ("{date}");
+                        SELECT DISTINCT '{date}'
+                        FROM dates
+                        WHERE '{date}' NOT IN (SELECT today FROM dates);
                         """
     )
 
-    article_id = read_as_DB(f"""SELECT id FROM {article_type}_types WHERE descript="{article_text}";""")[0][0][0]
-
+    article_id = read_as_DB(f"""SELECT id FROM {article_type}_types WHERE descript="{article_text}";""")
+    article_id = str(*article_id[0][0])
+    
     if article_type == "income":
         insert_to_DB(f"""
                     INSERT INTO finance (dates_id, inc_types_id, exp_types_id, amount, price)
