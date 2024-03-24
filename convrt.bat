@@ -1,0 +1,2 @@
+C:\Users\kostya\AppData\Roaming\Python\Python311\Scripts\pyuic5.exe -x "C:\Users\kostya\Documents\Python Scripts\TM-main\DialogFormFinance.ui" -o "C:\Users\kostya\Documents\Python Scripts\TM-main\DialogFormFinance.py"
+pause
