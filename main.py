@@ -1,6 +1,6 @@
-from formcreator import mainForm, dialogFormTask, app
-
 from Flags import Flags
+
+from formcreator import mainForm, dialogFormTask, app
 
 from MainForm.onClickCalerdar import onClickCalendar
 from MainForm.CheckBoxClick import CheckBoxClick
@@ -8,7 +8,7 @@ from MainForm.DatePeriod import SetDateIn, SetDateOut
 from MainForm.changeRecords import AddRecordClick, DelRecordClick, EditRecordClick
 from DialogFormTask.DialogFormTaskClose import dialogFormTaskClose
 
-from MainForm.FinanceTabUpdates import FinanceTableUpdate
+from MainForm.TabWidgetFuncs import FinanceTableUpdate, TasksTableUpdate
 
 
 flags = Flags()
@@ -26,6 +26,7 @@ dialogFormTask.ButtonCancel.clicked.connect(dialogFormTaskClose)
 mainForm.radioButtonComing.clicked.connect(FinanceTableUpdate)
 mainForm.radioButtonExpenditure.clicked.connect(FinanceTableUpdate)
 
+TasksTableUpdate()
 FinanceTableUpdate()
 
 app.exec()
