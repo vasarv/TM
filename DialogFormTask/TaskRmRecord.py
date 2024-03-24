@@ -8,8 +8,13 @@ from formcreator import (
     dialogFinanceWindow,
 )
 
-from TaskAddRecord import status_dict
 from DBfuncs import delete_as_DB, read_as_DB
+
+status_dict: dict = {
+    "Получена": "received",
+    "Начата": "started",
+    "Завершена": "completed",
+}
 
 def TaskRmRecordWindow():
     _translate = QtCore.QCoreApplication.translate
@@ -27,12 +32,14 @@ def TaskRmRecord():
 
     date_id = read_as_DB(f"""
                          SELECT id FROM dates
-                         WHERE today = {date}
-                         """)
+                         WHERE today = "{date}"
+                         """)[0]
+    
+    print(date_id)
 
     delete_as_DB(f"""
                 DELETE FROM task
-                WHERE descript = {description} AND dates_id = {date_id} AND status = {status}
+                WHERE descript = "{description}" AND dates_id = {date_id} AND status = "{status}"
     """)
 
     dialogTaskWindow.close()
