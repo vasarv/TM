@@ -24,18 +24,7 @@ mainForm.ButtonEditRecord.clicked.connect(EditRecordClick)
 dialogFormTask.ButtonCancel.clicked.connect(dialogFormTaskClose)
 
 
-###
-
-# mainForm.tabWidget.currentChanged.connect(TasksTableUpdate)
-
-###
-
-
-def AppInit():
-    TasksTableUpdate()
+TasksTableUpdate()
 
 
 app.exec()
-
-if __name__ == "__main__":
-    AppInit()
