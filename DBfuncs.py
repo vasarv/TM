@@ -30,3 +30,13 @@ def read_as_DB(request: str, db_name: str = "tasks.db") -> list:
     connection.close()
 
     return [list(data) for dat in data]
+
+def delete_as_DB(request: str, db_name: str = "tasks.db"):
+    try:
+        connection = sqlite3.connect(db_name)
+        cursor = connection.cursor()
+
+        cursor.execute(request)
+    finally:
+        connection.commit()
+        connection.close()
