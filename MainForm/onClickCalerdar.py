@@ -1,4 +1,7 @@
 from formcreator import mainForm
+from MainForm.TabWidgetFuncs import TasksTableUpdate
+from MainForm.TabWidgetFuncs import FinanceTableUpdate, TasksTableUpdate
 
 def onClickCalendar():
-    print(mainForm.calendarWidget.selectedDate().toString('dd.MM.yyyy'))
+    FinanceTableUpdate()
+    TasksTableUpdate()
